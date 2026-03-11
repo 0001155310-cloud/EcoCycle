@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCycle - Login</title>
+    <link rel="stylesheet" href="produtos-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .login-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .login-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #edf2f7;
+        }
+
+        .login-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .login-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            background: #f0f7f4;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .login-options a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-login-submit {
+            width: 100%;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-login-submit:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .register-link {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .register-link a {
+            color: var(--secondary-color);
+            font-weight: 700;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Identifique-se</h1>
+            <p>Você está a um passo de contribuir com o planeta.</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="EcoCycle-INDEX.html">Home</a></li>
+            <li><a href="EcoCycle-PRODUTOS.html">Produtos</a></li>
+            <li><a href="EcoCycle-PROJETOS.html">Projetos</a></li>
+            <li><a href="EcoCycle-PARCERIAS.html">Parcerias</a></li>
+        </ul>
+    </nav>
+
+    <main class="login-wrapper">
+        <section class="login-card">
+            <h2>Bem-vindo de volta!</h2>
+            <p>Entre para finalizar sua compra.</p>
+
+            <form action="EcoCycle-INDEX.html">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="login-options">
+                    <label><input type="checkbox"> Lembrar de mim</label>
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit" class="btn-login-submit">Entrar e Comprar</button>
+            </form>
+
+            <div class="register-link">
+                Não tem uma conta? <a href="#">Cadastre-se aqui</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 EcoCycle. Sua jornada sustentável começa aqui.</p>
+    </footer>
+
+</body>
+</html>
