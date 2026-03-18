@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | DevConnect Community</title>
+    <style>
+        /* Estilização básica para organizar o layout */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .registration-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h2 { color: #333; margin-top: 0; }
+        p { color: #666; font-size: 0.9em; margin-bottom: 25px; }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        /* Campos de texto, select e textarea */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box; /* Garante que o padding não quebre a largura */
+        }
+
+        /* Estilo para Radio e Checkbox */
+        .inline-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .inline-item {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+
+        .inline-item input {
+            margin-right: 8px;
+        }
+
+        /* Botões */
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            flex: 2;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover { background-color: #0056b3; }
+
+        .btn-reset {
+            background-color: #ea4335;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="registration-wrapper">
+        <section class="registration-card">
+            <h2>Junte-se à DevConnect</h2>
+            <p>Crie seu perfil profissional e conecte-se com milhares de desenvolvedores.</p>
+
+            <form action="/sucesso-cadastro" method="POST" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label for="full_name">Nome Completo</label>
+                    <input type="text" id="full_name" name="full_name" placeholder="Como você quer ser chamado?" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user_email">E-mail Corporativo ou Pessoal</label>
+                    <input type="email" id="user_email" name="user_email" placeholder="email@exemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user_tel">Telefone de Contato</label>
+                    <input type="tel" id="user_tel" name="user_tel" placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="user_password">Defina sua Senha</label>
+                    <input type="password" id="user_password" name="user_password" placeholder="Mínimo de 8 caracteres" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="birth_date">Data de Nascimento</label>
+                    <input type="date" id="birth_date" name="birth_date">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Onde você reside?</label>
+                    <select id="location" name="location" required>
+                        <option value="" disabled selected>Selecione uma região</option>
+                        <option value="norte">Região Norte</option>
+                        <option value="nordeste">Região Nordeste</option>
+                        <option value="centro-oeste">Região Centro-Oeste</option>
+                        <option value="sudeste">Região Sudeste</option>
+                        <option value="sul">Região Sul</option>
+                        <option value="exterior">Resido no Exterior</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Identificação de Gênero</label>
+                    <div class="inline-group">
+                        <label class="inline-item"><input type="radio" name="gender" value="m"> Masculino</label>
+                        <label class="inline-item"><input type="radio" name="gender" value="f"> Feminino</label>
+                        <label class="inline-item"><input type="radio" name="gender" value="n"> Prefiro não informar</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Suas Principais Áreas (Escolha todas que se aplicam)</label>
+                    <div class="inline-group">
+                        <label class="inline-item"><input type="checkbox" name="skill" value="prog"> Programação</label>
+                        <label class="inline-item"><input type="checkbox" name="skill" value="design"> Design</label>
+                        <label class="inline-item"><input type="checkbox" name="skill" value="redes"> Redes</label>
+                        <label class="inline-item"><input type="checkbox" name="skill" value="db"> Banco de Dados</label>
+                        <label class="inline-item"><input type="checkbox" name="skill" value="ia"> Inteligência Artificial</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile_pic">Foto de Perfil (JPG, PNG)</label>
+                    <input type="file" id="profile_pic" name="profile_pic" accept="image/*">
+                </div>
+
+                <div class="form-group">
+                    <label for="bio">Fale sobre você (Bio)</label>
+                    <textarea id="bio" name="bio" rows="5" placeholder="Compartilhe suas principais tecnologias e objetivos..."></textarea>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit" class="btn-submit">Finalizar Cadastro</button>
+                    <button type="reset" class="btn-reset">Limpar</button>
+                </div>
+
+            </form>
+
+            <footer>
+                Já é membro? <a href="#">Acesse o portal</a>
+            </footer>
+        </section>
+    </main>
+
+</body>
+</html>

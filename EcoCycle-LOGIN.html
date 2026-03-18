@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoCycle - Login</title>
+    <title>EcoCycle - Cadastro de Usuário</title>
     <link rel="stylesheet" href="produtos-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -11,28 +11,29 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 70vh;
+            min-height: 100vh;
+            padding: 40px 20px;
         }
 
         .login-card {
-            background: var(--white);
+            background: #ffffff; /* var(--white) */
             padding: 3rem;
             border-radius: 24px;
-            box-shadow: var(--shadow);
-            max-width: 400px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* var(--shadow) */
+            max-width: 550px; /* Aumentado para acomodar o cadastro */
             width: 100%;
             text-align: center;
             border: 1px solid #edf2f7;
         }
 
         .login-card h2 {
-            color: var(--primary-color);
+            color: #27ae60; /* var(--primary-color) */
             margin-bottom: 0.5rem;
             font-weight: 800;
         }
 
         .login-card p {
-            color: var(--text-muted);
+            color: #718096; /* var(--text-muted) */
             font-size: 0.9rem;
             margin-bottom: 2rem;
         }
@@ -47,55 +48,87 @@
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: var(--text-main);
+            color: #2d3748; /* var(--text-main) */
         }
 
-        .form-group input {
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="password"],
+        .form-group input[type="date"],
+        .form-group select,
+        .form-group textarea {
             width: 100%;
             padding: 12px 15px;
             border-radius: 10px;
             border: 2px solid #e2e8f0;
             font-family: inherit;
-            transition: var(--transition);
+            box-sizing: border-box;
         }
 
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            background: #f0f7f4;
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
         }
 
-        .login-options {
+        /* Estilo para Radio e Checkbox */
+        .options-group {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            margin-bottom: 2rem;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 10px;
         }
 
-        .login-options a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 600;
+        .option-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .option-item input {
+            margin-right: 10px;
+            width: auto;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
         .btn-login-submit {
-            width: 100%;
+            flex: 2;
             height: 50px;
-            background: var(--primary-color);
+            background: #27ae60; /* var(--primary-color) */
             color: white;
             border: none;
             border-radius: 12px;
             font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
-            transition: var(--transition);
+            transition: 0.3s;
+        }
+
+        .btn-reset {
+            flex: 1;
+            height: 50px;
+            background: #e2e8f0;
+            color: #4a5568;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
         .btn-login-submit:hover {
-            background: var(--secondary-color);
+            background: #2ecc71; /* var(--secondary-color) */
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
         }
 
         .register-link {
@@ -104,7 +137,7 @@
         }
 
         .register-link a {
-            color: var(--secondary-color);
+            color: #2ecc71;
             font-weight: 700;
             text-decoration: none;
         }
@@ -114,8 +147,8 @@
 
     <header>
         <div class="header-content">
-            <h1>Identifique-se</h1>
-            <p>Você está a um passo de contribuir com o planeta.</p>
+            <h1>Junte-se ao EcoCycle</h1>
+            <p>Crie sua conta e comece sua jornada sustentável.</p>
         </div>
     </header>
 
@@ -130,30 +163,86 @@
 
     <main class="login-wrapper">
         <section class="login-card">
-            <h2>Bem-vindo de volta!</h2>
-            <p>Entre para finalizar sua compra.</p>
+            <h2>Cadastro de Usuário</h2>
+            <p>Preencha os campos abaixo para realizar o cadastro.</p>
 
-            <form action="EcoCycle-INDEX.html">
+            <form action="EcoCycle-INDEX.html" method="POST" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" placeholder="seu@email.com" required>
+                    <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tel">Telefone</label>
+                    <input type="tel" id="tel" name="tel" placeholder="(00) 00000-0000">
                 </div>
 
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input type="password" id="password" placeholder="••••••••" required>
+                    <input type="password" id="password" name="password" placeholder="Crie uma senha segura" required>
                 </div>
 
-                <div class="login-options">
-                    <label><input type="checkbox"> Lembrar de mim</label>
-                    <a href="#">Esqueceu a senha?</a>
+                <div class="form-group">
+                    <label for="nascimento">Data de Nascimento</label>
+                    <input type="date" id="nascimento" name="nascimento">
                 </div>
 
-                <button type="submit" class="btn-login-submit">Entrar e Comprar</button>
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select id="estado" name="estado">
+                        <option value="" disabled selected>Selecione seu estado</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PR">Paraná</option>
+                        <option value="BA">Bahia</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Gênero</label>
+                    <div class="options-group">
+                        <label class="option-item"><input type="radio" name="genero" value="masculino"> Masculino</label>
+                        <label class="option-item"><input type="radio" name="genero" value="feminino"> Feminino</label>
+                        <label class="option-item"><input type="radio" name="genero" value="nao-informar"> Prefiro não informar</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Interesses em Sustentabilidade</label>
+                    <div class="options-group">
+                        <label class="option-item"><input type="checkbox" name="interesses" value="programacao"> Programação</label>
+                        <label class="option-item"><input type="checkbox" name="interesses" value="design"> Design</label>
+                        <label class="option-item"><input type="checkbox" name="interesses" value="redes"> Redes</label>
+                        <label class="option-item"><input type="checkbox" name="interesses" value="db"> Banco de Dados</label>
+                        <label class="option-item"><input type="checkbox" name="interesses" value="ia"> Inteligência Artificial</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="foto">Foto de Perfil</label>
+                    <input type="file" id="foto" name="foto" accept="image/*">
+                </div>
+
+                <div class="form-group">
+                    <label for="apresentacao">Apresentação Pessoal</label>
+                    <textarea id="apresentacao" name="apresentacao" placeholder="Conte-nos um pouco sobre você e seu interesse no EcoCycle..."></textarea>
+                </div>
+
+                <div class="btn-container">
+                    <button type="submit" class="btn-login-submit">Cadastrar</button>
+                    <button type="reset" class="btn-reset">Limpar</button>
+                </div>
             </form>
 
             <div class="register-link">
-                Não tem uma conta? <a href="#">Cadastre-se aqui</a>
+                Já possui uma conta? <a href="#">Faça login aqui</a>
             </div>
         </section>
     </main>
